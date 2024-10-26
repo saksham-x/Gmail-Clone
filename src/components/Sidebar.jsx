@@ -1,30 +1,35 @@
 import React from 'react'
-import { CgNotes } from 'react-icons/cg'
-import { IoMdClock, IoMdStar } from 'react-icons/io'
-import { IoPencil, IoSend } from 'react-icons/io5'
+import { AiOutlineInbox, AiOutlineSend } from 'react-icons/ai'
+import { HiOutlineClock, HiOutlineStar } from 'react-icons/hi2'
+import { IoPencil } from 'react-icons/io5'
+import { MdKeyboardArrowDown, MdOutlineDrafts } from 'react-icons/md'
 
 
 //for sidebar items 
 const sidebarItems = [
   {
-    icon: <IoPencil size={"24px"} />,
+    icon: <AiOutlineInbox size={"24px"} />,
     text: "Inbox"
   },
   {
-    icon: <IoMdStar size={"24px"} />,
+    icon: <HiOutlineStar size={"24px"} />,
     text: "Stared"
   },
   {
-    icon: <IoMdClock size={"24px"} />,
+    icon: <HiOutlineClock size={"24px"} />,
     text: "Snoozed"
   },
   {
-    icon: <IoSend size={"24px"} />,
+    icon: <AiOutlineSend size={"24px"} />,
     text: "Sent"
   },
   {
-    icon: <CgNotes size={"24px"} />,
+    icon: <MdOutlineDrafts size={"24px"} />,
     text: "Draft"
+  },
+  {
+    icon: <MdKeyboardArrowDown size={"24px"} />,
+    text: "More"
   }
 
 ]

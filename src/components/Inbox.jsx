@@ -4,6 +4,7 @@ import { IoMdArrowDropdown, IoMdMore, IoMdRefresh, IoMdSquareOutline } from 'rea
 import { LuUsers2 } from 'react-icons/lu'
 import { MdOutlineInbox } from 'react-icons/md'
 import Messages from './Messages'
+import { FaChevronLeft, FaChevronRight } from "react-icons/fa6";
 
 const mailType = [
     {
@@ -33,22 +34,38 @@ const Inbox = () => {
             <div className=' mx-6 bg-white shadow-lg shadow-blue-900/100 rounded-lg '>
                 {/* 4 icons of homepage  */}
 
-                <div className='flex px-4'>
-                    <div className='flex items-center'>
-                        <div className='p-2 hover:bg-gray-300 hover:rounded-sm cursor-pointer'>
-                            <IoMdSquareOutline size={"20px"} />
+                <div className='flex px-4   justify-between'>
+                    <div className='flex items-center '>
+
+
+                        <div className='flex items-center '>
+                            <div className='p-2 hover:bg-gray-300 hover:rounded-sm cursor-pointer'>
+                                <IoMdSquareOutline size={"20px"} />
+                            </div>
+                            <div className='p-2 hover:bg-gray-300 hover:rounded-sm cursor-pointer'>
+                                <IoMdArrowDropdown size={"20px"} />
+                            </div>
                         </div>
-                        <div className='p-2 hover:bg-gray-300 hover:rounded-sm cursor-pointer'>
-                            <IoMdArrowDropdown size={"20px"} />
+                        <div className='flex items-center p-3 '>
+                            <div className='p-2 hover:bg-gray-200 hover:rounded-full cursor-pointer'>
+                                <IoMdRefresh size={"20px"} />
+                            </div>
+                            <div className='p-2 hover:bg-gray-200 hover:rounded-full cursor-pointer' >
+                                <IoMdMore size={"20px"} />
+                            </div>
                         </div>
+
                     </div>
-                    <div className='flex items-center p-3'>
-                        <div className='p-2 hover:bg-gray-200 hover:rounded-full cursor-pointer'>
-                            <IoMdRefresh size={"20px"} />
+
+                    <div className='flex items-center p-3 gap-2'>
+
+                        <div className=" text-s">1-50 of 1000</div>
+
+                        <div className='flex '>
+                            <div className='p-2 hover:bg-gray-200 hover:rounded-full cursor-pointer'> <FaChevronLeft size={"20px"} /></div>
+                            <div className='p-2 hover:bg-gray-200 hover:rounded-full cursor-pointer'> <FaChevronRight size={"20px"} /></div>
                         </div>
-                        <div className='p-2 hover:bg-gray-200 hover:rounded-full cursor-pointer' >
-                            <IoMdMore size={"20px"} />
-                        </div>
+
                     </div>
                 </div>
 
@@ -74,6 +91,7 @@ const Inbox = () => {
                     {/* message list */}
                     <Messages />
                 </div>
+
 
 
 

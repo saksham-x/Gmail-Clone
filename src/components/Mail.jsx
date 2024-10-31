@@ -42,8 +42,12 @@ const Mail = () => {
                     <div className='p-2 hover:bg-gray-200 hover:rounded-md cursor-pointer'> <FaChevronRight size={"20px"} /></div>
                 </div>
             </div>
-            <div className='flex items-center gap-3 px-4'>
-                <strong>Supercharge your job search!</strong> <p className='text-gray-500 bg-gray-400'> Inbox </p>
+            <div>
+                <div className='flex items-center gap-3 px-4 ml-8 my-3'>
+
+                    <h1 className='text-xl'>Subject</h1> <p className='text-gray-500 bg-gray-300 px-2 rounded font-extralight text-xs'> Inbox </p>
+
+                </div>
             </div>
         </div>
     )

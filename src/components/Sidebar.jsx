@@ -1,8 +1,9 @@
-import React from 'react'
+import React, { useState } from 'react'
 import { AiOutlineInbox, AiOutlineSend } from 'react-icons/ai'
 import { HiOutlineClock, HiOutlineStar } from 'react-icons/hi2'
 import { IoPencil } from 'react-icons/io5'
 import { MdKeyboardArrowDown, MdOutlineDrafts } from 'react-icons/md'
+import { useDispatch } from 'react-redux'
 
 
 //for sidebar items 
@@ -35,13 +36,15 @@ const sidebarItems = [
 ]
 
 const Sidebar = () => {
+  // const [open, setOpen] = useState(false);
+  const dispatch = useDispatch();
   return (
-    <div className='w-[20%] bg-red-300'>
+    <div className='w-[15%] bg-red-300'>
 
       {/* compose button  */}
 
       <div className='p-3'>
-        <button className='flex items-center gap-2  p-4 bg-[#c2e7ff] rounded-xl hover:shadow-2xl'>
+        <button onClick={() => dispatch(setOpen(true))} className='flex items-center gap-2  p-4 text-gray-500 bg-[#c2e7ff] rounded-xl hover:shadow-2xl hover:bg-blue-200 hover:text-slate-950'>
           <IoPencil size={"24px"} />
           Compose
         </button>

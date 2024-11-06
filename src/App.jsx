@@ -27,10 +27,10 @@ function App() {
 
   return (
     <>
-      <div className='bg-[#f6f8fc] h-screen w-screen overflow-hidden'>
+      <div className='bg-[#f6f8fc] h-screen w-full overflow-hidden'>
         <Navbar />
         <RouterProvider router={router} />
-        <div className='absolute w-[30%] right-0 bottom-0 mr-3'>
+        <div className='absolute w-[30%] right-10 bottom-0 '>
           <SendMail />
         </div>
       </div>

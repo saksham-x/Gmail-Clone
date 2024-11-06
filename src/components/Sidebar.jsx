@@ -4,6 +4,7 @@ import { HiOutlineClock, HiOutlineStar } from 'react-icons/hi2'
 import { IoPencil } from 'react-icons/io5'
 import { MdKeyboardArrowDown, MdOutlineDrafts } from 'react-icons/md'
 import { useDispatch } from 'react-redux'
+import { setOpen } from './redux/appSlice'
 
 
 //for sidebar items 

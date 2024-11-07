@@ -57,10 +57,10 @@ const Sidebar = () => {
         {
           sidebarItems.map((item, index) => {
             return (
-              <div className='flex items-center justify-between hover:bg-slate-300 rounded-r-full px-6 py-1'>
-                <div className='flex items-center gap-6 ml-5'>
+              <div key={index} className='flex items-center justify-between hover:bg-slate-300 rounded-r-full px-6 py-1'>
+                <div className='flex items-center gap-6 ml-5' >
                   {item.icon}
-                  <p>{item.text} </p>
+                  <p >{item.text} </p>
                 </div>
               </div>
             )

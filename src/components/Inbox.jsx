@@ -31,7 +31,7 @@ const Inbox = () => {
     return (
         <>
 
-            <div className='flex-1 bg-white shadow-lg shadow-blue-900/100 rounded-lg '>
+            <div className='flex-1 bg-white shadow-lg shadow-sm rounded-lg '>
                 {/* 4 icons of homepage  */}
 
                 <div className='flex px-4   justify-between'>
@@ -69,7 +69,7 @@ const Inbox = () => {
                     </div>
                 </div>
 
-                <div className='h-[90vh] overflow-y-auto bg-red-200'>
+                <div className='h-[90vh] overflow-y-auto bg-white'>
                     {/* mapping 3 mail types  */}
                     <div className='flex items-center gap-1 '>
                         {

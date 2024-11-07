@@ -40,7 +40,7 @@ const Sidebar = () => {
   // const [open, setOpen] = useState(false);
   const dispatch = useDispatch();
   return (
-    <div className='w-[15%] bg-red-300'>
+    <div className='w-[15%] bg-gray-100'>
 
       {/* compose button  */}
 

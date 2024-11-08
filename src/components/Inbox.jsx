@@ -31,7 +31,7 @@ const Inbox = () => {
     return (
         <>
 
-            <div className='flex-1 bg-white shadow-lg shadow-sm rounded-lg '>
+            <div className='flex-1 bg-white shadow-lg  rounded-lg '>
                 {/* 4 icons of homepage  */}
 
                 <div className='flex px-4   justify-between'>

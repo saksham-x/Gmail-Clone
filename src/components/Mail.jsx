@@ -7,11 +7,13 @@ import { IoStarOutline } from 'react-icons/io5';
 import { MdArrowDropDown, MdMarkAsUnread, MdMore, MdOutlineArchive, MdOutlineDriveFileMove, MdOutlineReply, MdOutlineStar } from "react-icons/md";
 import { RiSpamLine } from 'react-icons/ri';
 import { TfiNewWindow } from "react-icons/tfi";
+import { useSelector } from 'react-redux';
 import { useNavigate } from 'react-router-dom';
 
 
 const Mail = () => {
     const navigate = useNavigate();
+    const selectedMail = useSelector(store => store.appSlice.selectedMail)
     return (
         <div className='flex-1 bg-white rounded-xl mx-6 shadow-lg'>
 
@@ -51,7 +53,8 @@ const Mail = () => {
             {/* 2nd navbar  */}
             <div className='flex items-center justify-between'>
                 <div className='flex items-center gap-3 px-4 ml-8 my-3'>
-                    <h1 className='text-xl'>Subject</h1> <p className='text-gray-500 bg-gray-300 px-2 rounded font-extralight text-xs'> Inbox </p>
+                    <h1 className='text-xl text-black font-medium'>{selectedMail?.subject}</h1>
+                    <p className='text-gray-500 bg-gray-300 px-1 rounded font-extralight text-xs'> Inbox </p>
                 </div>
                 <div className='mr-5'>
                     <div className='cursor-pointer p-2 hover:bg-gray-200 hover:rounded-md '>
@@ -65,7 +68,7 @@ const Mail = () => {
 
                     <div className='flex items-center'>
                         <h1 className='cursor-pointer'>Name</h1> &nbsp;
-                        <p className='text-xs'> {"<"}jobs-noreply@linkedin.com{">"} </p>
+                        <p className='text-xs'> {"<"}{selectedMail?.to}{">"} </p>
 
                         <button className='text-xs text-blue-400 hover:bg-gray-300 hover:rounded-md p-1 hover:text-blue-700'>unsubscribe</button>
                     </div>
@@ -77,7 +80,7 @@ const Mail = () => {
                 {/* right side icons  */}
                 <div className='flex items-center gap-2 text-gray-600 text-xs'>
                     <div className='p-1 cursor-pointer rounded-md hover:bg-gray-200'>
-                        Mon, Oct 21, 2:33 PM (10 days ago)
+                        {new Date(selectedMail?.createdAt?.seconds * 1000).toUTCString()}
                     </div>
                     <div className='p-1  cursor-pointerrounded-md hover:bg-gray-200'>
                         <IoStarOutline />
@@ -93,7 +96,7 @@ const Mail = () => {
             {/* Message  */}
 
             <div className='py-10 mx-6'>
-                MEssage
+                {selectedMail?.message}
             </div>
         </div>
     )

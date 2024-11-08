@@ -1,12 +1,18 @@
 import React from 'react'
 import { MdCropSquare, MdLabelImportant, MdStarOutline } from 'react-icons/md'
+import { useDispatch } from 'react-redux'
 import { useNavigate } from 'react-router-dom'
+import { setSelectedMail } from './redux/appSlice'
+
 
 const Message = ({ email }) => {
+    const dispatch = useDispatch();
 
     // open mail 
     const navigate = useNavigate();
     const openMail = () => {
+
+        dispatch(setSelectedMail(email));
         navigate(`/mail/${email.id}`)
 
     }

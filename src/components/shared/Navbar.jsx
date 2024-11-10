@@ -7,16 +7,28 @@ import { TbGridDots } from "react-icons/tb";
 import { IoMdOptions } from "react-icons/io";
 import Avatar from 'react-avatar';
 import { useDispatch } from 'react-redux';
-import { setSearchtext } from '../redux/appSlice';
+import { setSearchtext, setUser } from '../redux/appSlice';
+import { signOut } from 'firebase/auth';
+import { auth } from '../../firebase';
 
 const Navbar = () => {
     const dispatch = useDispatch();
     const [input, setInput] = useState("");
+    const [toggle, setToggle] = useState(false);
+
+    const signOutHandler = () => {
+        signOut(auth).then(() => {
+            dispatch(setUser(null))
+        })
+            .catch((err) => {
+                console.log(err);
+            });
+    }
     useEffect(() => {
         dispatch(setSearchtext(input))
 
     }, [input])
-    
+
     return (
         <>
             <div className='flex items-center mx-3 h-16 hover:bg-blue-200 justify-between'>
@@ -60,7 +72,26 @@ const Navbar = () => {
                             <TbGridDots size={"28px"} />
                         </div>
                         <div className="cursor-pointer">
-                            <Avatar src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpuRpU7VwkPrebyZRlkL6nPodiMJssWuGQvjk5WCdudkqN2izbSuggG_Tc4gmXUP7SqgU&usqp=CAU' round={true} size={40} />
+
+                            <Avatar onClick={() => setToggle(!toggle)} src={setUser?.photoURL} googleId="118096717852922241760" size="40" round={true} />
+                            {/* signout  */}
+                            {
+                                toggle && (
+                                    <div className='absolute top-16 right-10 bg-white shadow-lg p-2 rounded-md'>
+                                        <div className='flex items-center gap-2'>
+                                            <Avatar src='https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSpuRpU7VwkPrebyZRlkL6nPodiMJssWuGQvjk5WCdudkqN2izbSuggG_Tc4gmXUP7SqgU&usqp=CAU' round={true} size={40} />
+                                            <div>
+                                                <h1 className='font-semibold'>Rahul</h1>
+                                                <h1 className='text-gray-500'>zYH0A@example.com</h1>
+                                            </div>
+                                        </div>
+
+                                        <div onClick={signOutHandler} className='mt-3 hover:bg-gray-200 hover:rounded-md p-3 cursor-pointer'>
+                                            Logout
+                                        </div>
+                                    </div>
+                                )
+                            }
                         </div>
 
 

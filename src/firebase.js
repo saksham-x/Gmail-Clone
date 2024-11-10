@@ -2,7 +2,9 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
-import { GoogleAuthProvider } from "firebase/auth/web-extension";
+// import { GoogleAuthProvider } from "firebase/auth/web-extension";
+import { GoogleAuthProvider } from "firebase/auth";
+
 const firebaseConfig = {
     apiKey: "AIzaSyCkHtZAwqPcnUrGUX_rYvgyUdbmFrBDPGA",
     authDomain: "clone-35a0a.firebaseapp.com",

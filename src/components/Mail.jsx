@@ -8,12 +8,26 @@ import { MdArrowDropDown, MdMarkAsUnread, MdMore, MdOutlineArchive, MdOutlineDri
 import { RiSpamLine } from 'react-icons/ri';
 import { TfiNewWindow } from "react-icons/tfi";
 import { useSelector } from 'react-redux';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
+import { deleteDoc, doc } from 'firebase/firestore';
+import { db } from '../firebase';
 
 
 const Mail = () => {
     const navigate = useNavigate();
     const selectedMail = useSelector(store => store.appSlice.selectedMail)
+    const params = useParams();
+
+    const deleteMailById = async (id) => {
+        try {
+            await deleteDoc(doc(db, "emails", id))
+            navigate("/")
+
+        } catch (error) {
+            console.log(error)
+        }
+
+    }
     return (
         <div className='flex-1 bg-white rounded-xl mx-6 shadow-lg'>
 
@@ -32,7 +46,7 @@ const Mail = () => {
                         <RiSpamLine size={"20px"} />
                     </div>
 
-                    <div className='hover:bg-gray-200 hover:rounded-md p-3'>
+                    <div onClick={() => deleteMailById(params.id)} className='hover:bg-gray-200 hover:rounded-md p-3 hover:text-red-500'>
                         <BsTrash size={"20px"} />
                     </div>
                     <div className='hover:bg-gray-200 hover:rounded-md p-3'>
@@ -73,7 +87,7 @@ const Mail = () => {
                         <button className='text-xs text-blue-400 hover:bg-gray-300 hover:rounded-md p-1 hover:text-blue-700'>unsubscribe</button>
                     </div>
                     <div className='flex items-center text-xs'>
-                        to me  <MdArrowDropDown size={"20px"} />
+                        {selectedMail?.from}  <MdArrowDropDown size={"20px"} />
                     </div>
                 </div>
 
@@ -94,10 +108,12 @@ const Mail = () => {
                 </div>
             </div>
             {/* Message  */}
+            <p>
 
-            <div className='py-10 mx-6'>
-                {selectedMail?.message}
-            </div>
+                <div className='py-10 mx-6 text-gray-700'>
+                    {selectedMail?.message}
+                </div>
+            </p>
         </div>
     )
 }

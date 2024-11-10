@@ -57,7 +57,7 @@ const SendMail = () => {
                     <form onSubmit={submitHandler} className='flex flex-col gap-3 p-4'>
                         <div className='flex items-center gap-1 border-b border-gray-200 shadow-sm'>
                             <p> To  </p>
-                            <input onChange={changeHandler} value={FormData.to} type="text" name="to" id="" placeholder='Recipients' className='flex-1 text-black bg-transparent font-sans text-sm p-2' />
+                            <input onChange={changeHandler} value={formData.to} type="text" name="to" id="" placeholder='Recipients' className='flex-1 text-black bg-transparent font-sans text-sm p-2' />
                         </div>
                         <div className='flex gap-1 items-center border-b border-gray-200 shadow-sm'>
                             <h1>Subject :</h1>
@@ -68,7 +68,7 @@ const SendMail = () => {
 
 
                         <div className='flex justify-start '>
-                            <button onClick={() => dispatch(setOpen(false))} className='gap-3 p-2 text-gray-600 bg-blue-300 rounded-lg hover:bg-blue-500 '>Send</button>
+                            <button onSubmit={() => dispatch(setOpen(false))} className='gap-3 p-2 text-gray-600 bg-blue-300 rounded-lg hover:bg-blue-500 '>Send</button>
                         </div>
                     </form>
 
